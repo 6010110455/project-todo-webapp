@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@firebase/app": "^0.8.2",
     "express": "^4.18.2",
     "firebase": "^9.12.1",
     "firebase-admin": "^10.3.0",

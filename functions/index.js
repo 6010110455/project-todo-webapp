@@ -1,27 +1,27 @@
 const functions = require('firebase-functions');
 const app = require('express')();
 
-const {
-    getAllTodos,
-    postOneTodo,
-    deleteTodo,
-    editTodo
-} = require('./APIs/todos')
-
 // const {
-//     loginUser
-// } = require('./APIs/users')
+//     getAllTodos,
+//     postOneTodo,
+//     deleteTodo,
+//     editTodo
+// } = require('./APIs/todos')
 
-app.get('/todos', getAllTodos);
+const {
+    loginUser
+} = require('./APIs/users')
 
-app.post('/todo', postOneTodo);
+// app.get('/todos', getAllTodos);
 
-app.delete('/todo/:todoId', deleteTodo);
+// app.post('/todo', postOneTodo);
 
-app.put('/todo/:todoId', editTodo);
+// app.delete('/todo/:todoId', deleteTodo);
+
+// app.put('/todo/:todoId', editTodo);
 
 // Users
-// app.post('/login', loginUser);
+app.post('/login', loginUser);
 
 
 

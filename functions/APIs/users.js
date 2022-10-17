@@ -1,11 +1,24 @@
-// users.js
-
 // const { admin, db } = require('../util/admin');
-const config = require('../util/config');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
 
-const firebase = require('firebase-admin');
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-firebase.initializeApp(config);
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAGhJVgbS4WwnZK2RVPNmy3IyJHf1rY_vA",
+  authDomain: "todowebapp-bae21.firebaseapp.com",
+  projectId: "todowebapp-bae21",
+  storageBucket: "todowebapp-bae21.appspot.com",
+  messagingSenderId: "444784330187",
+  appId: "1:444784330187:web:7babc1abc93472a5d8224e",
+  measurementId: "G-GJMQ3MJET8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const { validateLoginData, validateSignUpData } = require('../util/validators');
 
@@ -19,7 +32,7 @@ exports.loginUser = (request, response) => {
     const { valid, errors } = validateLoginData(user);
 	if (!valid) return response.status(400).json(errors);
 
-    firebase
+    app
         .auth()
         .signInWithEmailAndPassword(user.email, user.password)
         .then((data) => {
